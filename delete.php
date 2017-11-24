@@ -6,6 +6,7 @@
  * Time: 11:51
  */
 require_once "connexion.php";
+require_once "functions.php";
 $sql = "SELECT 
   `id`, 
   `nom`, 
@@ -23,14 +24,8 @@ if ($row === false) {
     header("Location: index.php?error=nodatatodelete");
     exit;
 }
+head("Supprimer ".$row['nom']);
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
 <div>
     T'es s&ucirc;r de vouloir supprimer <strong><?=$row['nom']?></strong>?
     <form action="dodelete.php" method="post">
@@ -39,5 +34,4 @@ if ($row === false) {
     </form>
 </div>
 
-</body>
-</html>
+<?php foot();?>

@@ -1,4 +1,5 @@
 <?php
+require_once "functions.php";
 require_once "connexion.php";
 $sql = "SELECT 
   id, 
@@ -9,16 +10,10 @@ FROM
 ;";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-// gestion d'erreur de requete
+errorHandler($stmt);
+head("Liste des ingredients", false);
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des ingredients</title>
-    <link rel="stylesheet" href="css/brian.css">
-</head>
-<body>
+
 <a href="add.php">+ Ajouter</a>
 <table>
     <tr>
@@ -36,5 +31,4 @@ $stmt->execute();
     </tr>
     <?php endwhile;?>
 </table>
-</body>
-</html>
+<?php foot();?>
