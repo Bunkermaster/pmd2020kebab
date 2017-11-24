@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * @author Yann Le Scouarnec <bunkermaster@gmail.com>
  * Date: 24/11/2017
- * Time: 11:51
+ * Time: 14:14
  */
 if (!isset($_GET['id'])) {
-    header("Location: index.php?error=noidtoedit");
+    header("Location: index.php?error=noidtodetails");
     exit;
 }
 require_once "connexion.php";
@@ -25,17 +25,11 @@ $stmt->bindValue(':id', $_GET['id']);
 $stmt->execute();
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($row === false) {
-    header("Location: index.php?error=nodatatodelete");
+    header("Location: index.php?error=nodatatodetails");
     exit;
 }
-head("Supprimer ".$row['nom']);
+head("Details de ".$row['nom']);
 ?>
-<div>
-    T'es s&ucirc;r de vouloir supprimer <strong><?=$row['nom']?></strong>?
-    <form action="dodelete.php" method="post">
-        <input type="hidden" name="id" value="<?=$row['id']?>">
-        <input type="submit" value="Oui, je le suis">
-    </form>
-</div>
-
+    <h1><?=$row['nom']?></h1>
+    <p><?=$row['type']?></p>
 <?php foot();?>
