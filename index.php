@@ -27,7 +27,10 @@ head("Liste des ingredients", false);
         <td><?=$row["id"]?></td>
         <td><a href="details.php?id=<?=$row["id"]?>"><?=$row["nom"]?></a></td>
         <td><?=$row["type"]?></td>
-        <td><a href="delete.php?id=<?=$row["id"]?>">Delete</a></td>
+        <td>
+            <a href="delete.php?id=<?=$row["id"]?>">Delete</a>
+            <a href="edit.php?id=<?=$row["id"]?>">Update</a>
+        </td>
     </tr>
     <?php endwhile;?>
 </table>
