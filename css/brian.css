@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+}
+td {
+    border-bottom: 1px solid #34348f;
+}
+th {
+    color: mistyrose;
+    background-color: #34348f;
+    border-bottom: 1px solid #ff9900;
+}
