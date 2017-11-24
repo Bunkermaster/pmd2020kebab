@@ -32,7 +32,7 @@ $stmt->execute();
         <td><?=$row["id"]?></td>
         <td><?=$row["nom"]?></td>
         <td><?=$row["type"]?></td>
-        <td></td>
+        <td><a href="delete.php?id=<?=$row["id"]?>">Delete</a></td>
     </tr>
     <?php endwhile;?>
 </table>

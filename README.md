@@ -49,7 +49,7 @@ WHERE
 
 ## Update
 ### Formulaire
-GET /edit.php
+GET /edit.php?id={id}
 ```sql
 SELECT 
   id, 
@@ -76,7 +76,7 @@ WHERE
 
 ## Delete
 ### Confirmation
-GET /delete.php
+GET /delete.php?id={id}
 ```sql
 SELECT 
   id, 

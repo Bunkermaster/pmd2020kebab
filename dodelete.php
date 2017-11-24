@@ -3,18 +3,20 @@
  * Created by PhpStorm.
  * @author Yann Le Scouarnec <bunkermaster@gmail.com>
  * Date: 24/11/2017
- * Time: 11:38
+ * Time: 12:08
  */
+if (!isset($_POST['id'])) {
+    header("Location: index.php?error=noidtodelete");
+    exit;
+}
 require_once "connexion.php";
-$sql = "INSERT INTO 
+$sql = "DELETE FROM 
   `ingredient` 
-  (`id`, `nom`, `type`)
-VALUES
-  (NULL, :nom, :type)
+WHERE 
+  `id` = :id
 ;";
 $stmt = $conn->prepare($sql);
-$stmt->bindValue(':nom', $_POST['nom']);
-$stmt->bindValue(':type', $_POST['type']);
+$stmt->bindValue(':id', $_POST['id']);
 $stmt->execute();
 errorHandler($stmt);
 header("Location: index.php");
